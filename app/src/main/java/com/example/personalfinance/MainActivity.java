@@ -1,6 +1,9 @@
 package com.example.personalfinance;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.ParseInstallation;
@@ -11,7 +14,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button btn_add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,16 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        btn_add = findViewById(R.id.btn_add);
+        btn_add.setOnClickListener(this);
+
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btn_add){
+            Toast.makeText(this, "Button is pressed", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
