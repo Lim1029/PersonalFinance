@@ -6,14 +6,29 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
-    <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+
+
+
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_spending"
+        android:title="@string/title_spending"
+        android:icon="@drawable/spending"/>
+    <item
+        android:id="@+id/navigation_earning"
+        android:title="@string/title_earning"
+        android:icon="@drawable/earning"/>
+    <item
+        android:id="@+id/navigation_lending"
+        android:icon="@drawable/lending"
+        android:title="@string/title_lending" />
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/title_setting" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_lending"-->
+<!--        android:title="@string/title_lending"-->
+<!--        android:icon="@drawable/lending"/>-->
 
 </menu>
