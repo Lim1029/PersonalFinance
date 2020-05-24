@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#777777"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Add new spending"
+        android:layout_margin="10dp"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:id="@+id/add_menuTitle"/>
+
+    <EditText
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Title"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textColorHint="#C9F3F3F3"
+        android:id="@+id/add_edtTitle"
+        android:inputType="text"
+        android:importantForAutofill="yes"/>
+
+    <EditText
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Remark"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textColorHint="#C9F3F3F3"
+        android:id="@+id/add_edtRemark"
+        android:inputType="textLongMessage"
+        android:importantForAutofill="no"/>
+
+    <EditText
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Amount"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textColorHint="#C9F3F3F3"
+        android:id="@+id/add_edtAmount"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="yes"/>
+
+    <EditText
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Date"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textColorHint="#C9F3F3F3"
+        android:id="@+id/add_edtDate"
+        android:inputType="date"
+        android:importantForAutofill="yes"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Add photo"
+            android:textSize="15sp"
+            android:id="@+id/add_btnAddPhoto"
+            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+        <Button
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Save"
+            android:textSize="15sp"
+            android:id="@+id/add_btnSave"
+            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    </LinearLayout>
+
+</LinearLayout>
