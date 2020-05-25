@@ -86,13 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void addItemSpinner(){
-        List<String> list = new ArrayList<>();
-        list.add("Earning");
-        list.add("Spending");
-        list.add("Lending");
-        list.add("Borrow");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String[] nameType = {"Earning", "Spending", "Lending", "Borrowing"};
+        int[] imgType = {R.drawable.spending, R.drawable.spending, R.drawable.borrowing, R.drawable.borrowing};
+        CustomAdapter dataAdapter = new CustomAdapter(this, imgType, nameType);
         spinner_add.setAdapter(dataAdapter);
     }
 }
