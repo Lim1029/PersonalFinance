@@ -1,13 +1,17 @@
 package com.example.personalfinance;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,9 +23,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_add;
+    private Spinner spinner_add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_add = findViewById(R.id.btn_add);
         btn_add.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -60,7 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int height = LinearLayout.LayoutParams.WRAP_CONTENT;
             boolean focusable = true; // lets taps outside the popup also dismiss it
             final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
+            spinner_add = popupView.findViewById(R.id.add_type);
+            addItemSpinner();
             // show the popup window
             // which view you pass in doesn't matter, it is only used for the window tolken
             popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
@@ -74,5 +82,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
+    }
+
+
+    private void addItemSpinner(){
+        List<String> list = new ArrayList<>();
+        list.add("Earning");
+        list.add("Spending");
+        list.add("Lending");
+        list.add("Borrow");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_add.setAdapter(dataAdapter);
     }
 }

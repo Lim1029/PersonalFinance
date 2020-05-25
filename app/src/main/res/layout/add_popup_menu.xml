@@ -29,6 +29,13 @@
         android:inputType="text"
         android:importantForAutofill="yes"/>
 
+    <Spinner
+        android:id="@+id/add_type"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"/>
+
     <EditText
         android:layout_width="196dp"
         android:layout_height="wrap_content"
