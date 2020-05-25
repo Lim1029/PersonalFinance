@@ -1,4 +1,4 @@
-package com.example.personalfinance.ui.notifications;
+package com.example.personalfinance.ui.earning;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.personalfinance.R;
 
-public class NotificationsFragment extends Fragment {
+public class EarningFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private EarningViewModel earningViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        earningViewModel =
+                ViewModelProviders.of(this).get(EarningViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_earning, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        earningViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

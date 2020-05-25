@@ -12,14 +12,24 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.personalfinance.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_setting"
+        android:name="com.example.personalfinance.ui.setting.SettingFragment"
+        android:label="@string/title_setting"
+        tools:layout="@layout/fragment_setting" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.personalfinance.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_earning"
+        android:name="com.example.personalfinance.ui.earning.EarningFragment"
+        android:label="@string/title_earning"
+        tools:layout="@layout/fragment_earning" />
+    <fragment
+        android:id="@+id/navigation_spending"
+        android:name="com.example.personalfinance.ui.spending.SpendingFragment"
+        android:label="@string/title_spending"
+        tools:layout="@layout/spending_fragment" />
+    <fragment
+        android:id="@+id/navigation_lending"
+        android:name="com.example.personalfinance.ui.lending.LendingFragment"
+        android:label="@string/title_lending"
+        tools:layout="@layout/lending_fragment" />
 </navigation>
