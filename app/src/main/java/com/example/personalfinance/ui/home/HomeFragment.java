@@ -15,6 +15,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.personalfinance.R;
+import com.example.personalfinance.models.Money;
+import com.parse.ParseException;
+
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
@@ -26,15 +30,24 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 //        final TextView textView = root.findViewById(R.id.text_home);
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final GridView gv = root.findViewById(R.id.homeGrid);
+        homeViewModel.getMoneyList().observe(getViewLifecycleOwner(), new Observer<ArrayList<Money>>() {
+            @Override
+            public void onChanged(ArrayList<Money> monies) {
+                gv.setAdapter(new HomeGridAdapter(getContext(),monies));
+            }
+        });
+
+
+//                .observe(getViewLifecycleOwner(), new Observer<String>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
 //                textView.setText(s);
 //            }
 //        });
 
-        GridView gv = root.findViewById(R.id.homeGrid);
-        gv.setAdapter(new HomeGridAdapter(getContext()));
+
+
         return root;
 
 

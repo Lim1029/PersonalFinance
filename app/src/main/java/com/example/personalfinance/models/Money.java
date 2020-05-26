@@ -40,8 +40,8 @@ public class Money {
     public String getType() {
         return Type;
     }
-
-    public void setType(String type) {
-        Type = type;
-    }
+//
+//    public void setType(String type) {
+//        Type = type;
+//    }
 }
