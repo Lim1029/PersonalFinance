@@ -32,7 +32,9 @@ public class HomeViewModel extends ViewModel {
         mText = new MutableLiveData<>();
         moneyList = new MutableLiveData<>();
         mText.setValue("This is home fragment");
-        moneyList.setValue(getData());
+        if(HomeDatabase.moneyList == null)
+            getData();
+        moneyList.setValue(HomeDatabase.moneyList);
     }
     public LiveData<ArrayList<Money>> getMoneyList(){
         return moneyList;
@@ -42,8 +44,8 @@ public class HomeViewModel extends ViewModel {
         return mText;
     }
 
-    public ArrayList<Money> getData(){
-        ArrayList<Money> list = new ArrayList<>();
+    public void getData(){
+        HomeDatabase.moneyList = new ArrayList<>();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Money");
         query.whereEqualTo("username","a");
         List<ParseObject> result = null;
@@ -53,7 +55,7 @@ public class HomeViewModel extends ViewModel {
             e.printStackTrace();
         }
         for (ParseObject data: result) {
-                        list.add(
+                        HomeDatabase.moneyList.add(
                                 new Money(
                                         data.getInt("amount"),
                                         data.getString("date"),
@@ -62,6 +64,5 @@ public class HomeViewModel extends ViewModel {
                                 )
                         );
                     }
-        return list;
     }
 }
