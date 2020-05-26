@@ -1,7 +1,6 @@
 package com.example.personalfinance.ui.home;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.personalfinance.Money;
+import com.example.personalfinance.models.Money;
 import com.example.personalfinance.R;
 
 public class HomeGridAdapter extends BaseAdapter {

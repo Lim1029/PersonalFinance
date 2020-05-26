@@ -1,4 +1,4 @@
-package com.example.personalfinance;
+package com.example.personalfinance.models;
 
 public class Money {
     private float Amount;
