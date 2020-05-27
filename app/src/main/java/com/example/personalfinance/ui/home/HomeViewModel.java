@@ -32,7 +32,7 @@ public class HomeViewModel extends ViewModel {
         mText = new MutableLiveData<>();
         moneyList = new MutableLiveData<>();
         mText.setValue("This is home fragment");
-        if(HomeDatabase.moneyList == null)
+        if(HomeDatabase.moneyList == null || HomeDatabase.moneyList.size()==0)
             getData();
         moneyList.setValue(HomeDatabase.moneyList);
     }
@@ -53,6 +53,7 @@ public class HomeViewModel extends ViewModel {
             result = query.find();
         } catch (ParseException e) {
             e.printStackTrace();
+            return;
         }
         for (ParseObject data: result) {
                         HomeDatabase.moneyList.add(
