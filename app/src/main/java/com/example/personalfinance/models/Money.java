@@ -1,4 +1,4 @@
-package com.example.personalfinance;
+package com.example.personalfinance.models;
 
 public class Money {
     private float Amount;
@@ -40,8 +40,8 @@ public class Money {
     public String getType() {
         return Type;
     }
-
-    public void setType(String type) {
-        Type = type;
-    }
+//
+//    public void setType(String type) {
+//        Type = type;
+//    }
 }

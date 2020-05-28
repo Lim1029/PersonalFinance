@@ -11,12 +11,4 @@
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">DSpwvrXbslHVooiRVaPfcRfsOLbqnDT1HkEKVXsc</string>
     <string name="back4app_client_key">YxGxQK0i8x4zXvhQfPNw3mNjt1aQJlDxPHU1ZhTb</string>
-
-    <string-array name="Type">
-        <item>Earning</item>
-        <item>Spending</item>
-        <item>Lending</item>
-        <item>Borrow</item>
-    </string-array>
-
 </resources>
