@@ -1,12 +1,14 @@
 package com.example.personalfinance.models;
 
+import java.util.Date;
+
 public class Money {
     private float Amount;
-    private String Date;
+    private Date Date;
     private String Title;
     private String Type;
 
-    public Money(float amount, String date, String title, String type) {
+    public Money(float amount, Date date, String title, String type) {
         Amount = amount;
         Date = date;
         Title = title;
@@ -22,10 +24,10 @@ public class Money {
     }
 
     public String getDate() {
-        return Date;
+        return Date.getDate()+"/"+Date.getMonth()+"/"+Date.getYear();
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         Date = date;
     }
 
