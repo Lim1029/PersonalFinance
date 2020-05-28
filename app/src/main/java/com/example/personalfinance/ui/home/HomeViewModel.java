@@ -59,7 +59,7 @@ public class HomeViewModel extends ViewModel {
                         HomeDatabase.moneyList.add(
                                 new Money(
                                         data.getInt("amount"),
-                                        data.getString("date"),
+                                        data.getDate("date"),
                                         data.getString("title"),
                                         data.getString("type")
                                 )
