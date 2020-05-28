@@ -31,17 +31,14 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final GridView gv = root.findViewById(R.id.homeGrid);
-        homeViewModel.getMoneyList().observe(getViewLifecycleOwner(), new Observer<ArrayList<Money>>() {
-            @Override
-            public void onChanged(ArrayList<Money> monies) {
-                gv.setAdapter(new HomeGridAdapter(getContext(),monies));
-            }
-        });
-
+        gv.setAdapter(new HomeGridAdapter(getContext(),HomeDatabase.moneyList));
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HomeItemDetailFragment fragment = new HomeItemDetailFragment();
+                Bundle bundle=new Bundle();
+                bundle.putString("itemId", HomeDatabase.moneyList.get(position).getId());
+                fragment.setArguments(bundle);
                 fragment.show(getFragmentManager(),"SETUP");
             }
         });

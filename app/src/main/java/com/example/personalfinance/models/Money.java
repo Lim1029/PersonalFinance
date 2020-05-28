@@ -3,47 +3,34 @@ package com.example.personalfinance.models;
 import java.util.Date;
 
 public class Money {
-    private float Amount;
+    private double Amount;
     private Date Date;
     private String Title;
     private String Type;
+    private String Id;
 
-    public Money(float amount, Date date, String title, String type) {
+    public Money(double amount, Date date, String title, String type, String id) {
         Amount = amount;
         Date = date;
         Title = title;
         Type = type;
+        Id = id;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return Amount;
     }
-
-    public void setAmount(float amount) {
-        Amount = amount;
-    }
-
     public String getDate() {
-        return Date.getDate()+"/"+Date.getMonth()+"/"+Date.getYear();
+        return Date.getDate()+"/"+Date.getMonth();
     }
-
-    public void setDate(Date date) {
-        Date = date;
-    }
-
     public String getTitle() {
         return Title;
     }
-
-    public void setTitle(String title) {
-        Title = title;
-    }
-
     public String getType() {
         return Type;
     }
-//
-//    public void setType(String type) {
-//        Type = type;
-//    }
+
+    public String getId() {
+        return Id;
+    }
 }

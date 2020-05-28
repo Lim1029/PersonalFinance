@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.personalfinance.models.Money;
 import com.example.personalfinance.R;
@@ -45,7 +48,7 @@ public class HomeGridAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.home_gridview,null);
 
         TextView txtAmount = convertView.findViewById(R.id.txtAmount);
-        txtAmount.setText(moneyList.get(position).getAmount()+"");
+        txtAmount.setText("RM"+moneyList.get(position).getAmount());
 
         TextView txtDate = convertView.findViewById(R.id.txtDate);
         txtDate.setText(moneyList.get(position).getDate());
@@ -56,6 +59,24 @@ public class HomeGridAdapter extends BaseAdapter {
         ImageView imgType = convertView.findViewById(R.id.imgType);
         int resId = convertView.getResources().getIdentifier(moneyList.get(position).getType(),"drawable", mContext.getPackageName());
         imgType.setImageResource(resId);
+
+        ConstraintLayout contrainer = convertView.findViewById(R.id.relativeLayout);
+        switch (moneyList.get(position).getType()){
+            case "spending":
+                contrainer.setBackgroundResource(R.drawable.griditembackground_spending);
+                break;
+            case "earning":
+                contrainer.setBackgroundResource(R.drawable.griditembackground_earning);
+                break;
+            case "lending":
+                contrainer.setBackgroundResource(R.drawable.griditembackground_lending);
+                break;
+            case "borrowing":
+                contrainer.setBackgroundResource(R.drawable.griditembackground_borrowing);
+                break;
+            default:
+                break;
+        }
 
         return convertView;
     }

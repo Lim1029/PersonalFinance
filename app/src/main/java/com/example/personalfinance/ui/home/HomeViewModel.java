@@ -24,26 +24,14 @@ import java.util.List;
 public class HomeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    private MutableLiveData<ArrayList<Money>> moneyList;
+    private ArrayList<Money> moneyList;
 
 
 
     public HomeViewModel() {
-        mText = new MutableLiveData<>();
-        moneyList = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
         if(HomeDatabase.moneyList == null || HomeDatabase.moneyList.size()==0)
             getData();
-        moneyList.setValue(HomeDatabase.moneyList);
     }
-    public LiveData<ArrayList<Money>> getMoneyList(){
-        return moneyList;
-    }
-
-    public LiveData<String> getText() {
-        return mText;
-    }
-
     public void getData(){
         HomeDatabase.moneyList = new ArrayList<>();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Money");
@@ -58,10 +46,11 @@ public class HomeViewModel extends ViewModel {
         for (ParseObject data: result) {
                         HomeDatabase.moneyList.add(
                                 new Money(
-                                        data.getInt("amount"),
+                                        data.getDouble("amount"),
                                         data.getDate("date"),
                                         data.getString("title"),
-                                        data.getString("type")
+                                        data.getString("type"),
+                                        data.getObjectId()
                                 )
                         );
                     }
