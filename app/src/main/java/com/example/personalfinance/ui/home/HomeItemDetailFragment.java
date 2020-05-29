@@ -37,6 +37,7 @@ public class HomeItemDetailFragment extends DialogFragment {
     private Button btnBackCancel;
     private Button btnEditSave;
     private ProgressBar progressBarSave;
+    private ProgressBar gridItemProgressCircle;
 
     public HomeItemDetailFragment() {
         // Required empty public constructor
@@ -55,6 +56,7 @@ public class HomeItemDetailFragment extends DialogFragment {
         btnBackCancel = root.findViewById(R.id.btnBackGridItem);
         btnEditSave = root.findViewById(R.id.btnEditSaveGridItem);
         progressBarSave = root.findViewById(R.id.progressBarSave);
+        gridItemProgressCircle = root.findViewById(R.id.gridItemProgressBar);
 
         final ParseQuery<ParseObject> query = ParseQuery.getQuery("Money");
         query.whereEqualTo("objectId",itemId);
@@ -84,6 +86,7 @@ public class HomeItemDetailFragment extends DialogFragment {
                         default:
                             break;
                     }
+                    gridItemProgressCircle.setVisibility(View.GONE);
                 } else {
                     Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                 }
