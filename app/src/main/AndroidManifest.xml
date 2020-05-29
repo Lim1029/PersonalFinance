@@ -14,9 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Signup_Login">
+            android:name=".Signup_Login"
             android:label="User Sign Up/Log In">
-
         </activity>
         <activity
             android:name=".MainActivity"
