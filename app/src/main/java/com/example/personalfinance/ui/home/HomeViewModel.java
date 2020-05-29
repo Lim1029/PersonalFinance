@@ -1,5 +1,7 @@
 package com.example.personalfinance.ui.home;
 
+import android.app.Application;
+import android.content.Context;
 import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
@@ -23,36 +25,25 @@ import java.util.List;
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
-    private ArrayList<Money> moneyList;
+    private MutableLiveData<ArrayList<Money>> mMoneyList;
 
-
-
-    public HomeViewModel() {
-        if(HomeDatabase.moneyList == null || HomeDatabase.moneyList.size()==0)
-            getData();
-    }
-    public void getData(){
-        HomeDatabase.moneyList = new ArrayList<>();
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Money");
-        query.whereEqualTo("username","a");
-        List<ParseObject> result = null;
-        try {
-            result = query.find();
-        } catch (ParseException e) {
-            e.printStackTrace();
+    void init(){
+        if(mMoneyList != null){
             return;
         }
-        for (ParseObject data: result) {
-                        HomeDatabase.moneyList.add(
-                                new Money(
-                                        data.getDouble("amount"),
-                                        data.getDate("date"),
-                                        data.getString("title"),
-                                        data.getString("type"),
-                                        data.getObjectId()
-                                )
-                        );
-                    }
+        mMoneyList = HomeDataManager.getMoneyList();
     }
+
+    LiveData<ArrayList<Money>> getMoneyList(){
+        return mMoneyList;
+    }
+
+    void refreshData(){
+        mMoneyList.postValue(HomeDataManager.getAndReturnData());
+    }
+
+    public HomeViewModel() {
+
+    }
+
 }

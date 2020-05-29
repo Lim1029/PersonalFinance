@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Money {
     private double Amount;
-    private Date Date;
+    private String Date;
     private String Title;
     private String Type;
     private String Id;
 
-    public Money(double amount, Date date, String title, String type, String id) {
+    public Money(double amount, String date, String title, String type, String id) {
         Amount = amount;
         Date = date;
         Title = title;
@@ -21,7 +21,7 @@ public class Money {
         return Amount;
     }
     public String getDate() {
-        return Date.getDate()+"/"+Date.getMonth();
+        return Date;
     }
     public String getTitle() {
         return Title;

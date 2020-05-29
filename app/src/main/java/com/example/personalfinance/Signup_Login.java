@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.personalfinance.ui.home.HomeDataManager;
+import com.example.personalfinance.ui.home.HomeDatabase;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
@@ -114,8 +116,10 @@ public class Signup_Login extends AppCompatActivity {
 
     private void transitionToHomeActivity() {
         if(ParseUser.getCurrentUser() != null) {
+            HomeDataManager.moneyList = null;
             Intent intent = new Intent(Signup_Login.this, MainActivity.class);
             startActivity(intent);
+
         }
     }
 }

@@ -17,33 +17,59 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.personalfinance.R;
 import com.example.personalfinance.models.Money;
+import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomeItemDetailFragment.isItemUpdated{
 
     private HomeViewModel homeViewModel;
-
+    private HomeGridAdapter homeGridAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        homeViewModel.init();
+        homeViewModel.getMoneyList().observe(getViewLifecycleOwner(), new Observer<ArrayList<Money>>() {
+            @Override
+            public void onChanged(ArrayList<Money> monies) {
+                homeGridAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+
         final GridView gv = root.findViewById(R.id.homeGrid);
-        gv.setAdapter(new HomeGridAdapter(getContext(),HomeDatabase.moneyList));
+        homeGridAdapter = new HomeGridAdapter(getContext(), homeViewModel.getMoneyList().getValue());
+        gv.setAdapter(homeGridAdapter);
+
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HomeItemDetailFragment fragment = new HomeItemDetailFragment();
-                Bundle bundle=new Bundle();
-                bundle.putString("itemId", HomeDatabase.moneyList.get(position).getId());
+                fragment.setTargetFragment(HomeFragment.this,1);
+                Bundle bundle = new Bundle();
+                bundle.putString("itemId", homeViewModel.getMoneyList().getValue().get(position).getId());
                 fragment.setArguments(bundle);
-                fragment.show(getFragmentManager(),"SETUP");
+                fragment.show(getFragmentManager(), "SETUP");
             }
         });
+
         return root;
+    }
 
-
+    @Override
+    public void sendResult(Boolean result) {
+        if(result){
+            homeViewModel.refreshData();
+            homeGridAdapter.notifyDataSetChanged();
+        }
     }
 }
