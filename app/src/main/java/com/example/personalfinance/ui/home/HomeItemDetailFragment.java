@@ -31,8 +31,10 @@ public class HomeItemDetailFragment extends DialogFragment {
     }
     public isItemUpdated mIsItemUpdated;
 
+    private Boolean isUpdated = false;
+
     private String itemId = "";
-    private Button btnBack;
+    private Button btnBackCancel;
     private Button btnEditSave;
     private ProgressBar progressBarSave;
 
@@ -50,7 +52,7 @@ public class HomeItemDetailFragment extends DialogFragment {
         final EditText edtRemarks = root.findViewById(R.id.edtRemarksGridItem);
         final EditText edtDate = root.findViewById(R.id.edtDateGridItem);
         final EditText edtMoneyType = root.findViewById(R.id.edtMoneyTypeGridItem);
-        btnBack = root.findViewById(R.id.btnBackGridItem);
+        btnBackCancel = root.findViewById(R.id.btnBackGridItem);
         btnEditSave = root.findViewById(R.id.btnEditSaveGridItem);
         progressBarSave = root.findViewById(R.id.progressBarSave);
 
@@ -88,10 +90,28 @@ public class HomeItemDetailFragment extends DialogFragment {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnBackCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+                switch (btnBackCancel.getTag().toString()){
+                    case "Back":
+                        mIsItemUpdated.sendResult(isUpdated);
+                        dismiss();
+                        break;
+                    case "Cancel":
+                        edtAmount.setEnabled(false);
+                        edtDate.setEnabled(false);
+                        edtMoneyType.setEnabled(false);
+                        edtRemarks.setEnabled(false);
+                        edtTitle.setEnabled(false);
+                        btnEditSave.setTag("Edit");
+                        btnEditSave.setText("Edit");
+                        btnBackCancel.setText("Back");
+                        btnBackCancel.setTag("Back");
+                        break;
+
+                }
+
             }
         });
 
@@ -107,6 +127,8 @@ public class HomeItemDetailFragment extends DialogFragment {
                         edtTitle.setEnabled(true);
                         btnEditSave.setTag("Save");
                         btnEditSave.setText("Save");
+                        btnBackCancel.setText("Cancel");
+                        btnBackCancel.setTag("Cancel");
                         break;
                     case "Save":
                         edtAmount.setEnabled(false);
@@ -116,6 +138,8 @@ public class HomeItemDetailFragment extends DialogFragment {
                         edtTitle.setEnabled(false);
                         btnEditSave.setTag("Edit");
                         btnEditSave.setText("Edit");
+                        btnBackCancel.setText("Back");
+                        btnBackCancel.setTag("Back");
 
                         progressBarSave.setVisibility(View.VISIBLE);
 
@@ -133,7 +157,8 @@ public class HomeItemDetailFragment extends DialogFragment {
                                     object.saveInBackground();
                                     Toast.makeText(getContext(),"Item updated!",Toast.LENGTH_SHORT).show();
 
-                                    mIsItemUpdated.sendResult(true);
+                                    isUpdated = true;
+
 
 
                                 } else {

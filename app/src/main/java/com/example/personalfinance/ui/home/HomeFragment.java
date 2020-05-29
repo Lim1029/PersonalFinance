@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class HomeFragment extends Fragment implements HomeItemDetailFragment.isI
 
     private HomeViewModel homeViewModel;
     private HomeGridAdapter homeGridAdapter;
+    private GridView gv;
+    private ProgressBar progressBar;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -40,15 +43,15 @@ public class HomeFragment extends Fragment implements HomeItemDetailFragment.isI
         homeViewModel.getMoneyList().observe(getViewLifecycleOwner(), new Observer<ArrayList<Money>>() {
             @Override
             public void onChanged(ArrayList<Money> monies) {
-                homeGridAdapter.notifyDataSetChanged();
+                homeGridAdapter = new HomeGridAdapter(getContext(), homeViewModel.getMoneyList().getValue());
+                gv.setAdapter(homeGridAdapter);
             }
         });
 
-
-
-        final GridView gv = root.findViewById(R.id.homeGrid);
-        homeGridAdapter = new HomeGridAdapter(getContext(), homeViewModel.getMoneyList().getValue());
-        gv.setAdapter(homeGridAdapter);
+        gv = root.findViewById(R.id.homeGrid);
+        progressBar = root.findViewById(R.id.progressBar);
+//        homeGridAdapter = new HomeGridAdapter(getContext(), homeViewModel.getMoneyList().getValue());
+//        gv.setAdapter(homeGridAdapter);
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -69,7 +72,6 @@ public class HomeFragment extends Fragment implements HomeItemDetailFragment.isI
     public void sendResult(Boolean result) {
         if(result){
             homeViewModel.refreshData();
-            homeGridAdapter.notifyDataSetChanged();
         }
     }
 }
