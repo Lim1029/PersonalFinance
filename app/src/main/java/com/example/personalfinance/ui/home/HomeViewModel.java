@@ -48,7 +48,7 @@ public class HomeViewModel extends ViewModel {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Money");
         String username = ParseUser.getCurrentUser().getUsername();
         query.whereEqualTo("username", username);
-        List<ParseObject> result = null;
+        List<ParseObject> result;
         try {
             result = query.find();
         } catch (ParseException e) {
@@ -59,7 +59,7 @@ public class HomeViewModel extends ViewModel {
             HomeDatabase.moneyList.add(
                     new Money(
                             data.getInt("amount"),
-                            data.getDate("date"),
+                            data.getString("date"),
                             data.getString("title"),
                             data.getString("type")
                     )

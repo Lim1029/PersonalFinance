@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Money {
     private float Amount;
-    private Date Date;
+    private String Date;
     private String Title;
     private String Type;
 
-    public Money(float amount, Date date, String title, String type) {
+    public Money(float amount, String date, String title, String type) {
         Amount = amount;
         Date = date;
         Title = title;
@@ -24,10 +24,10 @@ public class Money {
     }
 
     public String getDate() {
-        return Date.getDate()+"/"+Date.getMonth()+"/"+Date.getYear();
+        return Date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         Date = date;
     }
 
