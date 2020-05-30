@@ -3,6 +3,7 @@ package com.example.personalfinance.ui.home;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,13 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.personalfinance.R;
 import com.parse.GetCallback;
+import com.parse.GetDataCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -38,6 +42,8 @@ public class HomeItemDetailFragment extends DialogFragment {
     private Button btnEditSave;
     private ProgressBar progressBarSave;
     private ProgressBar gridItemProgressCircle;
+    private ImageView imgItemDetail;
+    private ProgressBar imgProgressCircle;
 
     public HomeItemDetailFragment() {
         // Required empty public constructor
@@ -57,6 +63,8 @@ public class HomeItemDetailFragment extends DialogFragment {
         btnEditSave = root.findViewById(R.id.btnEditSaveGridItem);
         progressBarSave = root.findViewById(R.id.progressBarSave);
         gridItemProgressCircle = root.findViewById(R.id.gridItemProgressBar);
+        imgItemDetail = root.findViewById(R.id.imgItemDetail);
+        imgProgressCircle = root.findViewById(R.id.homeGridItemDetailImgProgressBar);
 
         final ParseQuery<ParseObject> query = ParseQuery.getQuery("Money");
         query.whereEqualTo("objectId",itemId);
@@ -87,6 +95,18 @@ public class HomeItemDetailFragment extends DialogFragment {
                             break;
                     }
                     gridItemProgressCircle.setVisibility(View.GONE);
+
+                    ParseFile imageFile = (ParseFile)object.get("picture");
+                    imageFile.getDataInBackground(new GetDataCallback() {
+                        public void done(byte[] data, ParseException e) {
+                            if (e == null) {
+                                imgItemDetail.setImageBitmap(BitmapFactory.decodeByteArray(data,0,data.length));
+                            } else {
+                                // something went wrong
+                            }
+                            imgProgressCircle.setVisibility(View.GONE);
+                        }
+                    });
                 } else {
                     Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                 }
