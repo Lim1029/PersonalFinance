@@ -17,7 +17,7 @@
         android:id="@+id/add_menuTitle"/>
 
     <EditText
-        android:layout_width="196dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Title"
@@ -31,13 +31,12 @@
 
     <Spinner
         android:id="@+id/add_type"
-        android:layout_width="196dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"/>
+        android:layout_gravity="center"/>
 
     <EditText
-        android:layout_width="196dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Remark"
@@ -50,7 +49,34 @@
         android:importantForAutofill="no"/>
 
     <EditText
-        android:layout_width="196dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Name"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textColorHint="#C9F3F3F3"
+        android:id="@+id/add_edtBorrowName"
+        android:inputType="textLongMessage"
+        android:importantForAutofill="no"
+        android:visibility="gone"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Money Type"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textColorHint="#C9F3F3F3"
+        android:id="@+id/add_edtMoneyType"
+        android:inputType="text"
+        android:importantForAutofill="yes"/>
+
+    <EditText
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:hint="Amount"
@@ -62,18 +88,38 @@
         android:inputType="numberDecimal"
         android:importantForAutofill="yes"/>
 
-    <EditText
-        android:layout_width="196dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Date"
-        android:layout_margin="10dp"
-        android:textSize="20sp"
-        android:textColor="#fff"
-        android:textColorHint="#C9F3F3F3"
-        android:id="@+id/add_edtDate"
-        android:inputType="date"
-        android:importantForAutofill="yes"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/add_edtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="20sp"
+            android:layout_weight="50"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textColor="#fff"/>
+
+        <TextView
+            android:id="@+id/add_borrowDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Return date"
+            android:layout_weight="50"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
