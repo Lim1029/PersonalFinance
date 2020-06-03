@@ -41,7 +41,6 @@ public class SettingPopupMenu extends AppCompatActivity implements View.OnClickL
         initialiseItems();
         modeSetting = getIntent().getStringExtra("mode");
         changeText(modeSetting);
-
     }
 
     void initialiseItems() {

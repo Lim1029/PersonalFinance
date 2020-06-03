@@ -7,7 +7,7 @@ import com.example.personalfinance.models.Money;
 import java.util.ArrayList;
 
 public class HomeDatabase {
-    public ArrayList<Money> moneyList;
+    static public ArrayList<Money> moneyList;
 
 //    public MutableLiveData<ArrayList<Money>> getMoneyList(){
 //        getData();
