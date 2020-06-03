@@ -8,7 +8,46 @@
     <string name="title_lending">Lending</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
+    <!--use for setting-->
+    <string name="title_change_email">Change Email</string>
+    <string name="title_change_username">Change Username</string>
+    <string name="title_change_password">Change Password</string>
+    <string name="title_change_theme">Change Theme</string>
+
+    <string name="text_old_email">Old email</string>
+    <string name="text_new_email">New email</string>
+    <string name="text_confirm_new_email">Confirm new email</string>
+
+    <string name="text_old_username">Old username</string>
+    <string name="text_new_username">New username</string>
+    <string name="text_confirm_new_username">Confirm new username</string>
+
+    <string name="text_old_password">Old password</string>
+    <string name="text_new_password">New password</string>
+    <string name="text_confirm_new_password">Confirm new password</string>
+
+    <string name="edt_old_email">Enter your old email</string>
+    <string name="edt_new_email">Enter your new email</string>
+    <string name="edt_confirm_new_email">Enter again your new email</string>
+
+    <string name="edt_old_username">Enter your old username</string>
+    <string name="edt_new_username">Enter your new username</string>
+    <string name="edt_confirm_new_username">Enter again your new  username</string>
+
+    <string name="edt_old_password">Enter your old password</string>
+    <string name="edt_new_password">Enter your new password</string>
+    <string name="edt_confirm_new_password">Enter again your new  password</string>
+
+
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">DSpwvrXbslHVooiRVaPfcRfsOLbqnDT1HkEKVXsc</string>
     <string name="back4app_client_key">YxGxQK0i8x4zXvhQfPNw3mNjt1aQJlDxPHU1ZhTb</string>
+
+    <string-array name="Type">
+        <item>Earning</item>
+        <item>Spending</item>
+        <item>Lending</item>
+        <item>Borrow</item>
+    </string-array>
+
 </resources>

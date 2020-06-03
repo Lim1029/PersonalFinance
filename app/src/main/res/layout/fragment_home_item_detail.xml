@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeItemDetailFragment"
+    android:orientation="vertical"
+    android:background="@drawable/griditembackground_lending"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/edtAmountGridItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#C7FFFFFF"
+        android:editable="false"
+        android:padding="10dp"
+        android:text="RM2899.00"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/edtTitleGridItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="#C7FFFFFF"
+        android:editable="false"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="lend zhanhong"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/edtRemarksGridItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="#C7FFFFFF"
+        android:editable="false"
+        android:padding="10dp"
+        android:text="Aliquam sagittis sem ut justo dapibus scelerisque."
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtDateGridItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="#C7FFFFFF"
+        android:editable="false"
+        android:padding="10dp"
+        android:text="Recorded on 2020-05-26 05:43:11"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/edtMoneyTypeGridItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="#C7FFFFFF"
+        android:editable="false"
+        android:padding="10dp"
+        android:text="By cash"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEditGridItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit" />
+
+        <Button
+            android:id="@+id/btnBackGridItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="back" />
+    </LinearLayout>
+
+</LinearLayout>
