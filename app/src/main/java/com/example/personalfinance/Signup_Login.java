@@ -28,6 +28,8 @@ public class Signup_Login extends AppCompatActivity {
         SIGNUP, LOGIN
     }
 
+    ///comment
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
