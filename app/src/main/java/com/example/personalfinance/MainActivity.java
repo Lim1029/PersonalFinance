@@ -21,6 +21,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.personalfinance.ui.home.HomeDatabase;
+import com.example.personalfinance.ui.home.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
@@ -186,10 +188,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     remark = edtRemark.getText().toString();
                     amount = Double.parseDouble(edtAmount.getText().toString());
                     moneyType = edtMoneyType.getText().toString();
-
-                    Toast.makeText(MainActivity.this,
-                            title + "\n" + spinnerSelected + "\n" + remark + "\n" + moneyType + "\n" + amount + "\n" + date1 + "\n" + date2
-                            , Toast.LENGTH_SHORT).show();
+                    spinnerSelected = spinnerSelected.toLowerCase();
 
                     ParseObject parseObject = new ParseObject("Money");
                     parseObject.put("username", ParseUser.getCurrentUser().getUsername());
