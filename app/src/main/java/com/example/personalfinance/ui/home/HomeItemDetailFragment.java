@@ -99,17 +99,17 @@ public class HomeItemDetailFragment extends DialogFragment {
                     }
                     gridItemProgressCircle.setVisibility(View.GONE);
 
-                    ParseFile imageFile = (ParseFile)object.get("picture");
-                    imageFile.getDataInBackground(new GetDataCallback() {
-                        public void done(byte[] data, ParseException e) {
-                            if (e == null) {
-                                imgItemDetail.setImageBitmap(BitmapFactory.decodeByteArray(data,0,data.length));
-                            } else {
-                                // something went wrong
-                            }
-                            imgProgressCircle.setVisibility(View.GONE);
-                        }
-                    });
+//                    ParseFile imageFile = (ParseFile)object.get("picture");
+//                    imageFile.getDataInBackground(new GetDataCallback() {
+//                        public void done(byte[] data, ParseException e) {
+//                            if (e == null) {
+//                                imgItemDetail.setImageBitmap(BitmapFactory.decodeByteArray(data,0,data.length));
+//                            } else {
+//                                // something went wrong
+//                            }
+//                            imgProgressCircle.setVisibility(View.GONE);
+//                        }
+//                    });
                 } else {
                     Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                 }
