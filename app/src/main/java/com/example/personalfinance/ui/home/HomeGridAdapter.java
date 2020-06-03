@@ -50,8 +50,8 @@ public class HomeGridAdapter extends BaseAdapter {
         TextView txtAmount = convertView.findViewById(R.id.txtAmount);
         txtAmount.setText("RM"+moneyList.get(position).getAmount());
 
-//        TextView txtDate = convertView.findViewById(R.id.txtDate);
-//        txtDate.setText(moneyList.get(position).getDate());
+        TextView txtDate = convertView.findViewById(R.id.txtDate);
+        txtDate.setText(moneyList.get(position).getDate());
 
         TextView txtTitle = convertView.findViewById(R.id.txtTitle);
         txtTitle.setText(moneyList.get(position).getTitle());

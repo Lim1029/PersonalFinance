@@ -1,101 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeItemDetailFragment"
-    android:orientation="vertical"
-    android:background="@drawable/griditembackground_lending"
-    android:gravity="center"
-    android:padding="20dp">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditText
-        android:id="@+id/edtAmountGridItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#C7FFFFFF"
-        android:editable="false"
-        android:padding="10dp"
-        android:text="RM2899.00"
-        android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/edtTitleGridItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="#C7FFFFFF"
-        android:editable="false"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="lend zhanhong"
-        android:textSize="36sp" />
-
-    <EditText
-        android:id="@+id/edtRemarksGridItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="#C7FFFFFF"
-        android:editable="false"
-        android:padding="10dp"
-        android:text="Aliquam sagittis sem ut justo dapibus scelerisque."
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/edtDateGridItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="#C7FFFFFF"
-        android:editable="false"
-        android:padding="10dp"
-        android:text="Recorded on 2020-05-26 05:43:11"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/edtMoneyTypeGridItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="#C7FFFFFF"
-        android:editable="false"
-        android:padding="10dp"
-        android:text="By cash"
-        android:textSize="18sp" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        android:orientation="horizontal">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnEditGridItem"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Edit" />
+            android:gravity="center"
+            android:isScrollContainer="false"
+            android:orientation="vertical"
+            android:padding="20dp"
+            tools:context=".ui.home.HomeItemDetailFragment">
 
-        <Button
-            android:id="@+id/btnBackGridItem"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="back" />
-    </LinearLayout>
 
-</LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBarSave"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/edtTitleGridItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#C7FFFFFF"
+                android:enabled="false"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="36sp" />
+
+            <EditText
+                android:id="@+id/edtRemarksGridItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#C7FFFFFF"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Recorded On"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edtDateGridItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#C7FFFFFF"
+                android:enabled="false"
+                android:inputType="datetime"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10sp"
+                android:text="By"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edtMoneyTypeGridItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#C7FFFFFF"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Amount in RM"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/edtAmountGridItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#C7FFFFFF"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <ProgressBar
+                android:id="@+id/homeGridItemDetailImgProgressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgItemDetail"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="center"
+                tools:srcCompat="@drawable/ic_launcher_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEditSaveGridItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:tag="Edit"
+                    android:text="Edit" />
+
+                <Button
+                    android:id="@+id/btnBackGridItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:tag="Back"
+                    android:text="back" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/gridItemProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:indeterminate="true"
+        android:padding="100dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

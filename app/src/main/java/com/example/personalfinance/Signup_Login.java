@@ -20,6 +20,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.personalfinance.ui.home.HomeDataManager;
+import com.example.personalfinance.ui.home.HomeDatabase;
 import com.example.personalfinance.ui.home.HomeDatabase;
 import com.example.personalfinance.ui.home.HomeViewModel;
 import com.example.personalfinance.ui.setting.SettingFragment;
@@ -165,12 +167,14 @@ public class Signup_Login extends AppCompatActivity implements View.OnClickListe
 
     private void transitionToHomeActivity() {
         if(ParseUser.getCurrentUser() != null) {
+            HomeDataManager.moneyList = null;
 
             SettingPopupMenu.setEmailSettingPopup(email);
             SettingPopupMenu.setUsernameSettingPopupSettingPopup(username);
             SettingPopupMenu.setPasswordSettingPopup(password);
             Intent intent = new Intent(Signup_Login.this, MainActivity.class);
             startActivity(intent);
+
             HomeDatabase.moneyList = null;
 
 //            Bundle bundle = new Bundle();

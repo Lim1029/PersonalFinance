@@ -2,6 +2,7 @@ package com.example.personalfinance;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -19,8 +20,16 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.personalfinance.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
@@ -62,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ParseInstallation.getCurrentInstallation().saveInBackground();
         // Passing each menu ID as a set o
         // f Ids because each
+        // Passing each menu ID as a set o
+        // f Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_spending, R.id.navigation_earning, R.id.navigation_lending, R.id.navigation_setting)
@@ -72,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn_add = findViewById(R.id.btn_add);
         btn_add.setOnClickListener(this);
+
     }
 
     @Override
